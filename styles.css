@@ -48,7 +48,7 @@ li {
     margin: 247px 0 171px;
 }
 
-.container .left, .container .right {
+.container .left, .container .right, .container .money {
     box-sizing: border-box;
     width: 360px;
     background-color: white;
@@ -81,9 +81,6 @@ li {
 
 .order-form .form-item {
     background-color: red;
-}
-
-.form-item {
     height: 20px;
 }
 
