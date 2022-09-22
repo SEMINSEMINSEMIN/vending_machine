@@ -16,12 +16,23 @@ body, h1 {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: blue;
 }
 
 .container h1 {
     width: 386px;
     height: 180px;
+    background-image: url(../images/Logo_img.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.txt-hide {
+    position: absolute;
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
 }
 
 .container main {
@@ -32,14 +43,9 @@ body, h1 {
     margin: 247px 0 171px;
 }
 
-.container .order, .container .right {
+.container .left, .container .right {
     width: 360px;
-    height: 545px;
-    background-color: green;
-}
-
-.container .right {
-    background-color: red;
+    background-color: white;
 }
 
 @media screen and (max-width: 747px) {
@@ -55,7 +61,7 @@ body, h1 {
 }
 
 @media screen and (max-width: 359px) {
-    .container .order, .container .right {
+    .container .left, .container .right {
         width: 100%;
     }
 }
