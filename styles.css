@@ -1,5 +1,8 @@
 body {
     background-color: #EAE8FE;
+}
+
+body, h1 {
     margin: 0;
 }
 
@@ -16,17 +19,22 @@ body {
     background-color: blue;
 }
 
+.container h1 {
+    width: 386px;
+    height: 180px;
+}
+
 .container main {
     width: 100%;
     display: flex;
     gap: 28px;
     flex-wrap: wrap;
+    margin: 247px 0 171px;
 }
 
 .container .order, .container .right {
     width: 360px;
     height: 545px;
-    margin-top: 200px;
     background-color: green;
 }
 
@@ -43,10 +51,6 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 0;
-    }
-
-    .container .right {
-        margin-top: 0;
     }
 }
 
