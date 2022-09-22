@@ -1,9 +1,23 @@
+.txt-hide {
+    position: absolute;
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+}
+
 body {
     background-color: #EAE8FE;
 }
 
-body, h1 {
+body, h1, ul, li {
     margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
 }
 
 .container {
@@ -26,15 +40,6 @@ body, h1 {
     background-size: contain;
 }
 
-.txt-hide {
-    position: absolute;
-	clip-path: inset(50%);
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-}
-
 .container main {
     width: 100%;
     display: flex;
@@ -44,8 +49,47 @@ body, h1 {
 }
 
 .container .left, .container .right {
+    box-sizing: border-box;
     width: 360px;
     background-color: white;
+}
+
+.container .left {
+    padding: 31px 27px 28px;
+}
+
+.left .drink-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.left .drink-item {
+    width: 94px;
+    height: 130px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.left .order-form {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 20px;
+}
+
+.order-form .form-item {
+    background-color: red;
+}
+
+.form-item {
+    height: 20px;
+}
+
+.form-item:nth-child(odd) {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 @media screen and (max-width: 747px) {
