@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>벤딩머신</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
@@ -31,12 +31,25 @@
                     <li class="drink-item"></li>
                 </ul>
                 <form class="order-form" action="index.html" method="post">
-                    <div class="form-item"></div>
-                    <div class="form-item"></div>
-                    <div class="form-item"></div>
-                    <div class="form-item"></div>
-                    <div class="form-item"></div>
-                    <div class="form-item"></div>
+                    <p class="form-item left-over">
+                        잔액 <span class="font-smaller">:</span> <span class="text-right">1,000 원</span>
+                    </p>
+                    <button class="form-item btn-left-over" type="button">
+                        거스름돈 반환
+                    </button>
+                    <label class="form-item">
+                        <span class="txt-hide">
+                            입금액 입력
+                        </span>
+                        <input class="input-deposit" type="text" placeholder="입금액 입력" required>
+                    </label>
+                    <button class="form-item  btn-deposit" type="button">
+                        입금
+                    </button>
+                    <ol class="form-item order-check"></ol>
+                    <button class="form-item btn-get" type="submit">
+                        획득
+                    </button>
                 </form>
             </section>
             <div class="right">

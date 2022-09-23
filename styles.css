@@ -7,19 +7,43 @@
 	overflow: hidden;
 }
 
+.font-smaller {
+    font-size: xx-small;
+    font-weight: 700;
+    position: absolute;
+    margin-left: 3.5px;
+    margin-top: 2.5px;
+}
+
 body {
     background-color: #EAE8FE;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 500;
 }
 
-body, h1, ul, li, p, h2, ol {
+body, h1, ul, li, p, h2, ol, input, button {
     margin: 0;
     padding: 0;
 }
 
+input {
+    display: block;
+    border: none;
+    font-family: inherit;
+}
+
 li {
     list-style: none;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: 500;
 }
 
 .container {
@@ -84,14 +108,79 @@ li {
     margin-top: 20px;
 }
 
-.order-form .form-item {
-    background-color: red;
-    height: 20px;
+.order-form * {
+    box-sizing: border-box;
 }
 
 .form-item:nth-child(odd) {
     grid-column-start: 1;
     grid-column-end: 3;
+}
+
+.order-form .left-over {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    background: #EAE8FE;
+    position: relative;
+}
+
+.order-form .left-over::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.order-form .btn-left-over {
+    background-color: white;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    padding-top: 6px;
+    padding-bottom: 7px;
+}
+
+.left-over .text-right {
+    float: right;
+}
+
+.order-form .input-deposit {
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: inherit;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    padding: 5px 5px 6px 5px;
+    width: 100%;
+}
+
+.order-form .input-deposit::placeholder {
+    color: #BDBDBD;
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: inherit;
+}
+
+.order-form .btn-deposit {
+    background-color: white;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    padding-top: 6px;
+    padding-bottom: 7px;
+}
+
+.order-form .order-check {
+    background-color: #EAE8FE;
+    height: 106px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+}
+
+.order-form .btn-get {
+    background: #6327FE;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding-top: 43px;
+    padding-bottom: 44px;
+    font-weight: 700;
 }
 
 .right .money, .right .receipt {
@@ -108,7 +197,7 @@ li {
     line-height: 
     20px;
     font-size: 14px;
-    font-weight: 700px;
+    font-weight: 700;
 }
 
 .right .receipt {
