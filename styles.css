@@ -119,6 +119,11 @@ li {
     .right .receipt {
         margin-top: 0;
     }
+
+    .container h1 {
+        width: 166px;
+        height: 78px;
+    }
 }
 
 @media screen and (max-width: 359px) {
