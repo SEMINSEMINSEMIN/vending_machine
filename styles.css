@@ -48,9 +48,12 @@ li {
     margin: 247px 0 171px;
 }
 
-.container .left, .container .right, .container .money {
+.container .left, .container .right {
     box-sizing: border-box;
     width: 360px;
+}
+
+.container .left {
     background-color: white;
 }
 
@@ -89,6 +92,19 @@ li {
     grid-column-end: 3;
 }
 
+.right .money, .right .receipt {
+    background-color: #FFFFFF;
+}
+
+.right .money {
+    height: 50px;
+}
+
+.right .receipt {
+    margin-top: 20px;
+    height: 474px;
+}
+
 @media screen and (max-width: 747px) {
     .container {
         width: 100%;
@@ -98,6 +114,10 @@ li {
         flex-direction: column;
         align-items: center;
         gap: 0;
+    }
+
+    .right .receipt {
+        margin-top: 0;
     }
 }
 
