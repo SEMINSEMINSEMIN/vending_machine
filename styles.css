@@ -102,7 +102,7 @@ li {
     padding: 9px 27px;
 }
 
-.right .money-now {
+.money .money-now {
     background-color: #EAE8FE;
     padding: 6px 10px;
     line-height: 
@@ -125,7 +125,7 @@ li {
 .receipt .order-list {
     margin: 13px 0 6px;
     box-sizing: border-box;
-    width: 306px;
+    width: 100%;
     height: 364px;
     background-color: 
     #EAE8FE;
@@ -145,7 +145,7 @@ li {
     }
 
     .container main {
-        /* flex-direction: column; */
+        flex-direction: column;
         align-items: center;
         gap: 0;
     }
@@ -161,11 +161,22 @@ li {
 
     .container main {
         margin-top: 0;
+        margin-bottom: 0;
         justify-content: center;
     }
 
     .container .left {
         padding: 96px 27px 0;
+    }
+
+    .right .money {
+        padding-top: 20px;
+        padding-bottom: 0;
+    }
+
+    .right .receipt {
+        padding-top: 41px;
+        padding-bottom: 43px;
     }
 }
 
