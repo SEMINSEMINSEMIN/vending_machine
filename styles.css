@@ -139,7 +139,7 @@ button {
     padding-bottom: 7px;
 }
 
-.left-over .text-right {
+.text-right {
     float: right;
 }
 
@@ -197,6 +197,10 @@ button {
     line-height: 
     20px;
     font-size: 14px;
+    border-radius: 5px;
+}
+
+.money-now .text-right {
     font-weight: 700;
 }
 
@@ -204,11 +208,17 @@ button {
     margin-top: 20px;
     padding: 25px 27px 26px;
 }
+.receipt::after{
+    content:'';
+    display:block;
+    clear:both;
+}
 
 .receipt h2 {
     font-size: 14px;
     line-height: 20px;
     font-weight: 700;
+    text-align: center;
 }
 
 .receipt .order-list {
@@ -223,9 +233,20 @@ button {
 }
 
 .receipt .total-amount {
+    /* display: inline; */
+    /* 적용이 안됨 */
     font-size: 12px;
     line-height: 17px;
     height: 20px;
+    vertical-align: bottom;
+    position: relative;
+    top: 2px;
+}
+
+.total-amount .font-smaller {
+    position: relative;
+    margin-left: 3px;
+    margin-right: -1px;
 }
 
 @media screen and (max-width: 747px) {
