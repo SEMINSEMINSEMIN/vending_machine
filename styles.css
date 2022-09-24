@@ -94,11 +94,36 @@ button {
 }
 
 .left .drink-item {
+    position: relative;
+    box-sizing: border-box;
     flex-basis: 94px;
-    height: 130px;
+    /* height: 130px; */
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
     border-radius: 10px;
     background-color: #FFFFFF;
+    padding: 0 11px 9px 13px;
+}
+
+.drink-item .item-name {
+    font-size: 9px;
+    margin-top: 82px;
+    margin-bottom: 7px;
+    line-height: 10px;
+    text-align: center;
+}
+
+.drink-item .item-price {
+    /* display: inline-block; */
+    background-color: #6327FE;
+    color: white;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px 16px 5px 15px;
+    border-radius: 50px;
+    /* margin-: 7px; */
+    /* position: absolute;
+    top: 99px;
+    bottom: 9px; */
 }
 
 .left .order-form {
