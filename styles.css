@@ -203,7 +203,7 @@ button {
 }
 
 .order-check .order-check-wrapper {
-    width: 170px;
+    width: calc(170 / 168 * 100%);
     height: 46px;
     border-radius: 5px;
     background-color: white;
