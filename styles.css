@@ -363,12 +363,15 @@ button {
     }
 
     .left .drink-item {
-        padding: 0 5px 9px 5px;
+        padding: 0;
+        padding-bottom: 9px;
     }
     
 
     .drink-item .item-price {
         padding-left: 0;
         padding-right: 0;
+        width: calc(70 / 94 * 100%);
+        margin: 0 auto;
     }
 }
