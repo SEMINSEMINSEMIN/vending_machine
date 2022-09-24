@@ -44,6 +44,7 @@ button {
     font-size: 13px;
     line-height: 19px;
     font-weight: 500;
+    background-color: transparent;
 }
 
 .container {
@@ -97,26 +98,34 @@ button {
 }
 
 .left .drink-item {
-    position: relative;
+    /* position: relative; */
     box-sizing: border-box;
     flex-basis: 94px;
     /* height: 130px; */
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
     border-radius: 10px;
     background-color: #FFFFFF;
-    padding: 0 11px 9px 13px;
+    padding-top: 11px;
+    padding-bottom: 9px;
+    cursor: pointer;
+}
+
+.drink-item img {
+    display: block;
+    width: 36px;
+    height: 65px;
+    margin: 0 auto;
 }
 
 .drink-item .item-name {
     font-size: 9px;
-    margin-top: 82px;
     margin-bottom: 7px;
     line-height: 10px;
     text-align: center;
+    margin-top: 6px;
 }
 
 .drink-item .item-price {
-    /* display: inline-block; */
     text-align: center;
     background-color: #6327FE;
     color: white;
@@ -124,10 +133,8 @@ button {
     line-height: 1;
     padding: 5px 16px 5px 15px;
     border-radius: 50px;
-    /* margin-: 7px; */
-    /* position: absolute;
-    top: 99px;
-    bottom: 9px; */
+    width: 39px;
+    margin: 0 auto;
 }
 
 .left .order-form {
@@ -214,10 +221,6 @@ button {
     margin-bottom: 6px;
     padding-left: 10px;
     padding-right: 8px;
-}
-
-.order-check-wrapper * {
-
 }
 
 .order-check-wrapper .small-cola-img {
@@ -365,6 +368,7 @@ button {
     .left .drink-item {
         padding: 0;
         padding-bottom: 9px;
+        padding-top: 9px;
     }
     
 
