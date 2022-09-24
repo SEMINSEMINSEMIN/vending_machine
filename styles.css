@@ -65,7 +65,7 @@ button {
 .container h1 {
     width: 386px;
     height: 180px;
-    background-image: url(./images/Logo_img.png);
+    background-image: url(../images/Logo_img.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
