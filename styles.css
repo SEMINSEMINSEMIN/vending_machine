@@ -56,6 +56,9 @@ button {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    margin: 0 auto;
+    /* width: 386px;
+    height: 180px; */
 }
 
 .container h1 {
@@ -203,11 +206,35 @@ button {
 }
 
 .order-check .order-check-wrapper {
+    position: relative;
     width: calc(170 / 168 * 100%);
     height: 46px;
     border-radius: 5px;
     background-color: white;
     margin-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 8px;
+}
+
+.order-check-wrapper * {
+
+}
+
+.order-check-wrapper .small-cola-img {
+    width: 18px;
+    height: 33px;
+}
+
+.order-check-wrapper .small-cola-name {
+    display: inline;
+    font-size: 9px;
+    line-height: 1;
+}
+
+.order-check-wrapper input {
+    display: inline;
+    width: 30px;
+    height: 30px;
 }
 
 .order-check-wrapper:last-child {
@@ -215,7 +242,7 @@ button {
 }
 
 .order-form .btn-get {
-    background-colr: #6327FE;
+    background-color: #6327FE;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     color: white;
     padding-top: 43px;
