@@ -212,6 +212,17 @@ button {
     overflow-x: hidden;overflow-y: auto;
 }
 
+.order-check::-webkit-scrollbar {
+    width: 10px;
+}
+
+.order-check::-webkit-scrollbar-thumb {
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
 .order-check .order-check-wrapper {
     width: 170px;
     height: 46px;
