@@ -208,36 +208,49 @@ button {
     height: 106px;
     border: 1px solid #BDBDBD;
     border-radius: 5px;
-    padding: 12px 18px 12px 12px;
+    padding: 11px 17px 11px 11px;
     overflow-x: hidden;overflow-y: auto;
 }
 
 .order-check .order-check-wrapper {
-    position: relative;
-    width: calc(170 / 168 * 100%);
+    width: 170px;
     height: 46px;
     border-radius: 5px;
     background-color: white;
     margin-bottom: 6px;
     padding-left: 10px;
     padding-right: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .order-check-wrapper .small-cola-img {
     width: 18px;
     height: 33px;
+    position: relative;
+    top: -1px;
 }
 
 .order-check-wrapper .small-cola-name {
     display: inline;
     font-size: 9px;
     line-height: 1;
+    padding-left: 10px;
+}
+
+.order-check-wrapper .small-cola-num {
+    margin-left: auto;
 }
 
 .order-check-wrapper input {
     display: inline;
     width: 30px;
     height: 30px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .order-check-wrapper:last-child {
@@ -347,6 +360,10 @@ button {
 
     .container .left {
         padding: 96px 27px 0;
+    }
+
+    .order-check .order-check-wrapper {
+        width: calc(170 / 168 * 100%);
     }
 
     .right .money {
