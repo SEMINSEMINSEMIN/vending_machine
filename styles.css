@@ -242,7 +242,7 @@ button {
     /* 아래 코드 주석을 풀면 160이 돼버림 */
     /* 근데 개발자 도구에서 order-check의 content area 너비가 170인데? */
     /* 알고보니까 스크롤바 때문에 그런듯.. */
-    width: 100%;
+    width: 170px;
     height: 46px;
     border-radius: 5px;
     background-color: white;
@@ -268,12 +268,17 @@ button {
     padding-left: 10px;
 }
 
-.order-check-wrapper .small-cola-num {
+.receipt .num-select {
+    box-sizing: border-box;
+    padding: 3px 10px 5px 10px;
+}
+
+.small-cola-num, .receipt .num-select {
     margin-left: auto;
 }
 
-.order-check-wrapper input {
-    display: inline;
+.order-check-wrapper .num-select {
+    /* display: inline; */
     width: 30px;
     height: 30px;
     border: 1px solid #BDBDBD;
@@ -343,13 +348,13 @@ button {
     #EAE8FE;
     border: 1px solid #BDBDBD;
     border-radius: 5px;
-    padding: 11px 7px 11px 11px;
+    padding: 11px 17px 11px 11px;
     overflow-x: hidden;overflow-y: auto;
 }
 
 .order-list .order-check-wrapper {
     box-sizing: border-box;
-    width: 100%;
+    width: 276px;
 }
 
 .receipt .total-amount {
@@ -424,5 +429,13 @@ button {
         padding-right: 0;
         width: calc(70 / 94 * 100%);
         margin: 0 auto;
+    }
+
+    .order-check .order-check-wrapper, .receipt .order-check-wrapper {
+        /* width: calc(100% + 10px); */
+        /* 아래 코드 주석을 풀면 160이 돼버림 */
+        /* 근데 개발자 도구에서 order-check의 content area 너비가 170인데? */
+        /* 알고보니까 스크롤바 때문에 그런듯.. */
+        width: 100%;
     }
 }
