@@ -59,6 +59,7 @@ button {
     color: black;
 }
 
+
 /* 수평정렬 */
 .container {
     width: 74.8rem;
@@ -412,6 +413,9 @@ button:focus, input:focus {
         background-color: white;
     }
 
+    button {
+        color: black;
+    }
 
     .container {
         width: 100%;
@@ -458,6 +462,10 @@ button:focus, input:focus {
 }
 
 @media screen and (max-width: 359px) {
+    button {
+        color: black;
+    }
+
     .container .left, .container .right {
         width: 100%;
     }
