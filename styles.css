@@ -1,3 +1,9 @@
+:root {
+    --main-bg-color: #EAE8FE;
+    --point-color: #6327FE;
+    --border-color: #BDBDBD;
+}
+
 .txt-hide {
     position: absolute;
 	clip-path: inset(50%);
@@ -16,7 +22,7 @@
 }
 
 body {
-    background-color: #EAE8FE;
+    background-color: var(--main-bg-color);
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 500;
 }
@@ -130,11 +136,11 @@ button {
 }
 
 .drink-item:nth-child(1) {
-    outline: 3px solid #6327FE;
+    outline: 3px solid var(--point-color);
 }
 
 .drink-item:nth-child(5) {
-    outline: 3px solid #6327FE;
+    outline: 3px solid var(--point-color);
 }
 
 .drink-item button {
@@ -146,7 +152,7 @@ button {
 }
 
 button:focus, input:focus {
-    outline: 3px solid #6327FE;
+    outline: 3px solid var(--point-color);
 }
 
 .drink-item img {
@@ -166,7 +172,7 @@ button:focus, input:focus {
 
 .drink-item .item-price {
     text-align: center;
-    background-color: #6327FE;
+    background-color: var(--point-color);
     color: white;
     font-size: 12px;
     line-height: 1;
@@ -199,7 +205,7 @@ button:focus, input:focus {
     line-height: 20px;
     padding: 6px 10px;
     border-radius: 5px;
-    background: #EAE8FE;
+    background: var(--main-bg-color);
     position: relative;
 }
 
@@ -224,14 +230,14 @@ button:focus, input:focus {
     font-size: 13px;
     line-height: 19px;
     font-weight: inherit;
-    border: 1px solid #BDBDBD;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 5px 5px 6px 5px;
     width: 100%;
 }
 
 .order-form .input-deposit::placeholder {
-    color: #BDBDBD;
+    color: var(--border-color);
     font-size: 13px;
     line-height: 19px;
     font-weight: inherit;
@@ -245,9 +251,9 @@ button:focus, input:focus {
 }
 
 .order-form .order-check {
-    background-color: #EAE8FE;
+    background-color: var(--main-bg-color);
     height: 106px;
-    border: 1px solid #BDBDBD;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 11px 17px 11px 11px;
     /* padding: 11px 17px 11px 11px; */
@@ -312,7 +318,7 @@ button:focus, input:focus {
     /* display: inline; */
     width: 30px;
     height: 30px;
-    border: 1px solid #BDBDBD;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
@@ -324,7 +330,7 @@ button:focus, input:focus {
 }
 
 .order-form .btn-get {
-    background-color: #6327FE;
+    background-color: var(--point-color);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     color: white;
     padding-top: 43px;
@@ -341,7 +347,7 @@ button:focus, input:focus {
 }
 
 .money .money-now {
-    background-color: #EAE8FE;
+    background-color: var(--main-bg-color);
     padding: 6px 10px;
     line-height: 
     20px;
@@ -377,7 +383,7 @@ button:focus, input:focus {
     height: 364px;
     background-color: 
     #EAE8FE;
-    border: 1px solid #BDBDBD;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 11px 17px 11px 11px;
     overflow-x: hidden;overflow-y: auto;
