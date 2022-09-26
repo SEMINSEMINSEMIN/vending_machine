@@ -17,8 +17,12 @@
     font-size: xx-small;
     font-weight: 700;
     position: absolute;
-    margin-left: 3.5px;
-    margin-top: 2.5px;
+    margin-left: 0.35rem;
+    margin-top: 0.25rem;
+}
+
+html {
+    font-size: 10px;
 }
 
 body {
@@ -47,49 +51,47 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 13px;
-    line-height: 19px;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
     font-weight: 500;
     background-color: transparent;
 }
 
+/* 수평정렬 */
 .container {
-    width: 748px;
+    width: 74.8rem;
     margin: 0 auto;
 }
 
+/* 어떤 상황에서든 브라우저 맨위 중앙에 보이도록 */
 .container header {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0 auto;
-    /* width: 386px;
-    height: 180px; */
 }
 
 .container h1 {
-    width: 386px;
-    height: 180px;
+    width: 38.6rem;
+    height: 18.0rem;
 }
 
 .container .logo-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .container main {
     width: 100%;
     display: flex;
-    gap: 28px;
+    gap: 2.8rem;
     flex-wrap: wrap;
-    margin: 247px 0 171px;
+    margin: 24.7rem 0 17.1rem;
 }
 
 .container .left, .container .right {
     box-sizing: border-box;
-    width: 360px;
+    width: 36.0rem;
 }
 
 .container .left {
@@ -97,20 +99,21 @@ button {
 }
 
 .container .left {
-    padding: 31px 27px 28px;
+    padding: 3.1rem 2.7rem 2.8rem;
 }
 
 .left .drink-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
+    gap: 1.2rem;
 }
 
 .left .drink-item {
     position: relative;
     box-sizing: border-box;
-    flex-basis: 94px;
-    height: 130px;
+    flex-basis: 9.4rem;
+    height: 13.0rem;
+    padding: 13.0rem;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
     border-radius: 10px;
     background-color: #FFFFFF;
@@ -129,10 +132,11 @@ button {
     display: block;
     background-color: rgba(0, 0, 0, 0.8);
     background-image: url(./images/Sold-out.png);
-    background-size: 57.51px 44.85px;
+    /* 백그라운드 사이즈 어떻게 했는지 궁금 */
+    background-size: 5.751rem 4.485rem;
     background-repeat: no-repeat;
     /* background-position: 17px 45px; */
-    background-position: center 45px;
+    background-position: center 4.5rem;
 }
 
 .drink-item:nth-child(1) {
@@ -155,39 +159,44 @@ button:focus, input:focus {
     outline: 3px solid var(--point-color);
 }
 
+/*
+///
+///다른 분들은 음료 이미지, 음료 이름, 음료 가격 어떻게 정렬했는지 궁금///
+///
+*/
+
 .drink-item img {
-    width: 36px;
-    height: 65px;
-    margin: 11px auto 0;
+    width: 3.6rem;
+    /* width: calc(36 / 94 * 100%); */
+    /* height: 65px; */
+    margin: 1.1rem auto 0;
     display: block;
 }
 
 .drink-item .item-name {
-    font-size: 9px;
-    line-height: 10px;
-    text-align: center;
-    margin: 6px 0 7px;
+    font-size: 0.9rem;
+    line-height: 1.0rem;
+    margin: 0.6rem 0 0.7rem;
     display: block;
 }
 
 .drink-item .item-price {
-    text-align: center;
     background-color: var(--point-color);
     color: white;
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 1;
-    padding: 5px 16px 5px 15px;
-    border-radius: 50px;
-    width: 39px;
+    padding: 0.5rem 1.6rem 0.5rem 1.5rem;
+    border-radius: 5px;
+    width: 3.9rem;
     margin: 0;
     display: block;
 }
 
 .left .order-form {
     display: grid;
-    gap: 12px;
+    gap: 1.2rem;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 20px;
+    margin-top: 2.0rem;
 }
 
 .order-form * {
@@ -201,14 +210,15 @@ button:focus, input:focus {
 }
 
 .order-form .left-over {
-    font-size: 14px;
-    line-height: 20px;
-    padding: 6px 10px;
+    font-size: 1.4rem;
+    line-height: 2.0rem;
+    padding: 0.6rem 1.0rem;
     border-radius: 5px;
     background: var(--main-bg-color);
     position: relative;
 }
 
+/* float 해제 */
 .order-form .left-over::after {
     content: '';
     display: block;
@@ -218,8 +228,8 @@ button:focus, input:focus {
 .order-form .btn-left-over {
     background-color: white;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
-    padding-top: 6px;
-    padding-bottom: 7px;
+    padding-top: 0.6rem;
+    padding-bottom: 0.7rem;
 }
 
 .text-right {
@@ -227,49 +237,48 @@ button:focus, input:focus {
 }
 
 .order-form .input-deposit {
-    font-size: 13px;
-    line-height: 19px;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
     font-weight: inherit;
     border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 5px 5px 6px 5px;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.5rem 0.6rem 0.5rem;
     width: 100%;
 }
 
 .order-form .input-deposit::placeholder {
     color: var(--border-color);
-    font-size: 13px;
-    line-height: 19px;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
     font-weight: inherit;
 }
 
 .order-form .btn-deposit {
     background-color: white;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
-    padding-top: 6px;
-    padding-bottom: 7px;
+    padding-top: 0.6rem;
+    padding-bottom: 0.7rem;
 }
 
 .order-form .order-check {
     background-color: var(--main-bg-color);
-    height: 106px;
+    height: 10.6rem;
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    padding: 11px 17px 11px 11px;
-    /* padding: 11px 17px 11px 11px; */
+    padding: 1.1rem 1.7rem 1.1rem 1.1rem;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
 .order-check::-webkit-scrollbar, .order-list::-webkit-scrollbar {
     position: absolute;
-    width: 10px;
+    width: 1.0rem;
 }
 
 .order-check::-webkit-scrollbar-thumb, .order-list::-webkit-scrollbar-thumb {
     position: absolute;
     background-color: #FFFFFF;
-    border-radius: 50px;
+    border-radius: 5rem;
     background-clip: padding-box;
     border: 3px solid transparent;
 }
@@ -279,35 +288,33 @@ button:focus, input:focus {
     /* 아래 코드 주석을 풀면 160이 돼버림 */
     /* 근데 개발자 도구에서 order-check의 content area 너비가 170인데? */
     /* 알고보니까 스크롤바 때문에 그런듯.. */
-    width: 170px;
-    height: 46px;
+    width: 17.0rem;
+    height: 4.6rem;
     border-radius: 5px;
     background-color: white;
-    margin-bottom: 6px;
-    padding-left: 10px;
-    padding-right: 8px;
+    margin-bottom: 0.6rem;
+    padding-left: 1.0rem;
+    padding-right: 0.8rem;
     display: flex;
     /* flex-grow: 1; */
     align-items: center;
 }
 
 .order-check-wrapper .small-cola-img {
-    width: 18px;
-    height: 33px;
+    width: 1.8rem;
     position: relative;
-    top: -1px;
+    top: -0.1rem;
 }
 
 .order-check-wrapper .small-cola-name {
-    display: inline;
-    font-size: 9px;
+    font-size: 0.9rem;
     line-height: 1;
-    padding-left: 10px;
+    padding-left: 1.0rem;
 }
 
 .receipt .num-select {
     box-sizing: border-box;
-    padding: 3px 10px 5px 10px;
+    padding: 0.3rem 1.0rem 0.5rem 1.0rem;
 }
 
 .small-cola-num, .receipt .num-select {
@@ -315,13 +322,12 @@ button:focus, input:focus {
 }
 
 .order-check-wrapper .num-select {
-    /* display: inline; */
-    width: 30px;
-    height: 30px;
+    width: 3.0rem;
+    height: 3.0rem;
     border: 1px solid var(--border-color);
     border-radius: 5px;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
 }
 
@@ -333,8 +339,8 @@ button:focus, input:focus {
     background-color: var(--point-color);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     color: white;
-    padding-top: 43px;
-    padding-bottom: 44px;
+    padding-top: 4.3rem;
+    padding-bottom: 4.4rem;
     font-weight: 700;
 }
 
@@ -343,15 +349,15 @@ button:focus, input:focus {
 }
 
 .right .money {
-    padding: 9px 27px;
+    padding: 0.9rem 2.7rem;
 }
 
 .money .money-now {
     background-color: var(--main-bg-color);
-    padding: 6px 10px;
+    padding: 0.6rem 1.0rem;
     line-height: 
-    20px;
-    font-size: 14px;
+    2.0rem;
+    font-size: 1.4rem;
     border-radius: 5px;
 }
 
@@ -360,9 +366,11 @@ button:focus, input:focus {
 }
 
 .right .receipt {
-    margin-top: 20px;
-    padding: 25px 27px 26px;
+    margin-top: 2.0rem;
+    padding: 2.5rem 2.7rem 2.6rem;
 }
+
+/* float 해제 */
 .receipt::after{
     content:'';
     display:block;
@@ -370,45 +378,42 @@ button:focus, input:focus {
 }
 
 .receipt h2 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1.4rem;
+    line-height: 2.0rem;
     font-weight: 700;
     text-align: center;
 }
 
 .receipt .order-list {
-    margin: 13px 0 6px;
+    margin: 1.3rem 0 0.6rem;
     box-sizing: border-box;
-    width: 100%;
-    height: 364px;
+    height: 36.4rem;
     background-color: 
     #EAE8FE;
     border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 11px 17px 11px 11px;
-    overflow-x: hidden;overflow-y: auto;
+    border-radius: 0.5rem;
+    padding: 1.1rem 1.7rem 1.1rem 1.1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .order-list .order-check-wrapper {
     box-sizing: border-box;
-    width: 276px;
+    width: 27.6rem;
 }
 
 .receipt .total-amount {
-    /* display: inline; */
-    /* 적용이 안됨 */
-    font-size: 12px;
-    line-height: 17px;
-    height: 20px;
-    vertical-align: bottom;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    height: 2.0rem;
     position: relative;
-    top: 2px;
+    top: 0.2rem;
 }
 
 .total-amount .font-smaller {
     position: relative;
-    margin-left: 3px;
-    margin-right: -1px;
+    margin-left: 0.3rem;
+    margin-right: -0.1rem;
 }
 
 @media screen and (max-width: 747px) {
@@ -420,6 +425,8 @@ button:focus, input:focus {
         flex-direction: column;
         align-items: center;
         gap: 0;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .right .receipt {
@@ -429,12 +436,6 @@ button:focus, input:focus {
     .container h1 {
         width: 166px;
         height: 78px;
-    }
-
-    .container main {
-        margin-top: 0;
-        margin-bottom: 0;
-        justify-content: center;
     }
 
     .container .left {
@@ -469,10 +470,9 @@ button:focus, input:focus {
     }
 
     .order-check .order-check-wrapper, .receipt .order-check-wrapper {
-        /* width: calc(100% + 10px); */
-        /* 아래 코드 주석을 풀면 160이 돼버림 */
-        /* 근데 개발자 도구에서 order-check의 content area 너비가 170인데? */
-        /* 알고보니까 스크롤바 때문에 그런듯.. */
-        width: 100%;
+        /* 이렇게 하면 170이 돼버림 */
+        /* width: 100%; */
+        /* 뭔가 스크롤바 때문에 그런듯.. */
+        width: calc(100% + 10px);
     }
 }
