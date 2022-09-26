@@ -13,10 +13,11 @@
 	overflow: hidden;
 }
 
-.font-smaller {
+.next-smaller::after {
+    content: ':';
     font-size: xx-small;
     font-weight: 700;
-    position: absolute;
+    /* position: absolute; */
     margin-left: 0.35rem;
     margin-top: 0.25rem;
 }
@@ -61,19 +62,14 @@ button {
 .container {
     width: 74.8rem;
     margin: 0 auto;
+    min-width: 320px;
 }
 
 /* 어떤 상황에서든 브라우저 맨위 중앙에 보이도록 */
-.container header {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .container h1 {
     width: 38.6rem;
     height: 18.0rem;
+    margin: 0 auto;
 }
 
 .container .logo-img {
@@ -86,7 +82,7 @@ button {
     display: flex;
     gap: 2.8rem;
     flex-wrap: wrap;
-    margin: 24.7rem 0 17.1rem;
+    margin: 4.4rem 0 17.1rem;
 }
 
 .container .left, .container .right {
@@ -186,7 +182,7 @@ button:focus, input:focus {
     font-size: 1.2rem;
     line-height: 1;
     padding: 0.5rem 1.6rem 0.5rem 1.5rem;
-    border-radius: 5px;
+    border-radius: 50px;
     width: 3.9rem;
     margin: 0;
     display: block;
@@ -271,7 +267,6 @@ button:focus, input:focus {
 }
 
 .order-check::-webkit-scrollbar, .order-list::-webkit-scrollbar {
-    position: absolute;
     width: 1.0rem;
 }
 
@@ -289,6 +284,7 @@ button:focus, input:focus {
     /* 근데 개발자 도구에서 order-check의 content area 너비가 170인데? */
     /* 알고보니까 스크롤바 때문에 그런듯.. */
     width: 17.0rem;
+    /* width: 100%; */
     height: 4.6rem;
     border-radius: 5px;
     background-color: white;
@@ -410,13 +406,12 @@ button:focus, input:focus {
     top: 0.2rem;
 }
 
-.total-amount .font-smaller {
-    position: relative;
-    margin-left: 0.3rem;
-    margin-right: -0.1rem;
-}
-
 @media screen and (max-width: 747px) {
+    body {
+        background-color: white;
+    }
+
+
     .container {
         width: 100%;
     }
@@ -433,23 +428,31 @@ button:focus, input:focus {
         margin-top: 0;
     }
 
+    .container header {
+        background-color: white;
+    }
+
     .container h1 {
-        width: 166px;
-        height: 78px;
+        width: 16.6rem;
+        height: 7.8rem;
     }
 
     .container .left {
-        padding: 96px 27px 0;
+        padding: 1.8rem 2.7rem 0;
     }
 
     .right .money {
-        padding-top: 20px;
+        padding-top: 2.0rem;
         padding-bottom: 0;
     }
 
     .right .receipt {
-        padding-top: 41px;
-        padding-bottom: 43px;
+        padding-top: 4.1rem;
+        padding-bottom: 4.3rem;
+    }
+
+    .left .sold-out::after {
+        background-position: center 2rem;
     }
 }
 
@@ -474,5 +477,6 @@ button:focus, input:focus {
         /* width: 100%; */
         /* 뭔가 스크롤바 때문에 그런듯.. */
         width: calc(100% + 10px);
+        /* width: 100%; */
     }
 }
