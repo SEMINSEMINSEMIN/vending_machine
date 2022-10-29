@@ -81,19 +81,27 @@ const moneyNow = right.querySelector('.money-now .text-right .num-only');
 let moneyNowNum = parseInt(moneyNow
     .textContent.replace(',',''), 10);
 
+// https://hianna.tistory.com/441
+// 천단위마다 콤마
+function thousandComma(num){
+    return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 // 입금액
 const moneyInp = left.querySelector("#inputDeposit");
 const inpBtn = left.querySelector(".btn-deposit");
+const leftOver = left.querySelector('.left-over .num-only');
+let leftOverNum = parseInt(leftOver.textContent.replace(',', ''), 10);
 
-// https://hianna.tistory.com/441
 function moneyInput(){
     if (moneyInp.value > moneyNowNum){
         window.alert('소지금보다 입금액이 더 클 수 없습니다.');
     } else {
         moneyNowNum = moneyNowNum - moneyInp.value;
-        moneyNow.textContent = moneyNowNum
-        .toString()
-        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        moneyNow.textContent = thousandComma(moneyNowNum);
+
+        leftOverNum += parseInt(moneyInp.value, 10);
+        leftOver.textContent = thousandComma(leftOverNum);
     }
     moneyInp.value = '';
 }
