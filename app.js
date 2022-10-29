@@ -107,3 +107,15 @@ function moneyInput(){
 }
 
 inpBtn.addEventListener('click', moneyInput);
+
+// 거스름돈 반환
+const leftReturnBtn = left.querySelector(".btn-left-over");
+
+function leftReturnFun(){
+    moneyNowNum += leftOverNum;
+    leftOverNum = 0;
+    moneyNow.textContent = thousandComma(moneyNowNum);
+    leftOver.textContent = '0';
+}
+
+leftReturnBtn.addEventListener('click', leftReturnFun);
