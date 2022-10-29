@@ -85,6 +85,7 @@ let moneyNowNum = parseInt(moneyNow
 const moneyInp = left.querySelector("#inputDeposit");
 const inpBtn = left.querySelector(".btn-deposit");
 
+// https://hianna.tistory.com/441
 function moneyInput(){
     if (moneyInp.value > moneyNowNum){
         window.alert('소지금보다 입금액이 더 클 수 없습니다.');
@@ -94,6 +95,7 @@ function moneyInput(){
         .toString()
         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
+    moneyInp.value = '';
 }
 
 inpBtn.addEventListener('click', moneyInput);
