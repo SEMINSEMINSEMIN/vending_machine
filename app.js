@@ -121,14 +121,16 @@ function leftReturnFun(){
 leftReturnBtn.addEventListener('click', leftReturnFun);
 
 // 음료 클릭시
-// https://marshallku.com/web/tips/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%95%9C-%EB%B2%88%EB%A7%8C-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-event-listener
 const orderCheck = left.querySelector('.order-check');
 
-function reduceNum(name){
-    drinkData.filter(e => {
-        if (e["drinkName"] === name){
+function reduceNum(name, event){
+    drinkData.forEach(e => {
+        if (e["drinkName"] === name && e["num"] > 1){
             e["num"] = e["num"] - 1;
-        };
+        } else if (e["num"] == 1){
+            event.currentTarget.classList.add("sold-out");
+            e["num"] = e["num"] - 1;
+        }
     });
 }
 
@@ -154,6 +156,8 @@ function onceSelected(event){
         orderListNames.push(i.children[1].textContent);
     }
 
+    const sameNameLi = orderCheckItems[orderListNames.indexOf(clickedName)];
+
     if (leftOverNum >= clickedPrice){
         if (!orderListNames.includes(clickedName)){
             leftOverNum -= clickedPrice;
@@ -171,7 +175,7 @@ function onceSelected(event){
             p.textContent = clickedName;
             p.setAttribute("class", "small-cola-name");
 
-            reduceNum(clickedName);
+            reduceNum(clickedName, event);
 
             const div = document.createElement('div');
             const hiddenSpan = document.createElement('span');
@@ -186,9 +190,10 @@ function onceSelected(event){
     
             orderCheck.append(li);
         } else {
-            const sameNameLi = orderCheckItems[orderListNames.indexOf(clickedName)];
+            leftOverNum -= clickedPrice;
+            leftOver.textContent = thousandComma(leftOverNum);
             sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
-            reduceNum(clickedName);
+            reduceNum(clickedName, event);
         }
     } else {
         window.alert("잔액이 부족합니다.");
@@ -199,3 +204,4 @@ drinkList.querySelectorAll('li button')
     .forEach(e => {
         e.addEventListener("click", onceSelected);
     });
+
