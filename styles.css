@@ -119,6 +119,10 @@ button {
     padding: 0;
 }
 
+.left .drink-item:hover {
+    outline: 3px solid var(--point-color);
+}
+
 .left .sold-out::after {
     position: absolute;
     top: 0;
@@ -137,13 +141,13 @@ button {
     background-position: center 4.5rem;
 }
 
-.drink-item:nth-child(1) {
+/* .drink-item:nth-child(1) {
     outline: 3px solid var(--point-color);
 }
 
 .drink-item:nth-child(5) {
     outline: 3px solid var(--point-color);
-}
+} */
 
 .drink-item button {
     width: 100%;
