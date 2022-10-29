@@ -129,6 +129,7 @@ function reduceNum(name, event){
             e["num"] = e["num"] - 1;
         } else if (e["num"] == 1){
             event.currentTarget.classList.add("sold-out");
+            event.currentTarget.setAttribute('disabled', '');
             e["num"] = e["num"] - 1;
         }
     });

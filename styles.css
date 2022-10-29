@@ -127,6 +127,10 @@ button:hover {
     outline: 3px solid var(--point-color);
 }
 
+.sold-out {
+    cursor: not-allowed;
+}
+
 .left .sold-out::after {
     position: absolute;
     top: 0;
