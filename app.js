@@ -88,6 +88,8 @@ const inpBtn = left.querySelector(".btn-deposit");
 function moneyInput(){
     if (moneyInp.value > moneyNowNum){
         window.alert('소지금보다 입금액이 더 클 수 없습니다.');
+    } else {
+        moneyNow.textContent = moneyNowNum - moneyInp.value;
     }
 }
 
