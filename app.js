@@ -4,7 +4,7 @@ const right = main.querySelector('.right');
 
 // 음료 메뉴
 const drinkData = [{
-    'drinkName': "Original_Cola",
+    "drinkName": "Original_Cola",
     "price": 1000,
     "num": 5,
     'img': ["images/Original_Cola.png", "Original Cola"],
@@ -121,18 +121,75 @@ function leftReturnFun(){
 leftReturnBtn.addEventListener('click', leftReturnFun);
 
 // 음료 클릭시
-function drinkSelected(event){
+// https://marshallku.com/web/tips/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%95%9C-%EB%B2%88%EB%A7%8C-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-event-listener
+const orderCheck = left.querySelector('.order-check');
+
+function reduceNum(name){
+    drinkData.filter(e => {
+        if (e["drinkName"] === name){
+            e["num"] = e["num"] - 1;
+        };
+    });
+}
+
+function onceSelected(event){
     const clickedItem = event.currentTarget;
+
+    const clickedImg = clickedItem
+    .querySelector("img");
 
     const clickedPrice = parseInt(clickedItem
     .querySelector(".item-price")
     .textContent
     .slice(0, -1), 10);
-    console.log(clickedPrice);
+
+    const clickedName = clickedItem
+    .querySelector(".item-name")
+    .textContent;
+
+    const orderCheckItems = orderCheck.querySelectorAll("li");
+
+    const orderListNames = [];
+    for (const i of orderCheckItems){
+        orderListNames.push(i.children[1].textContent);
+    }
 
     if (leftOverNum >= clickedPrice){
-        leftOverNum -= clickedPrice;
-        leftOver.textContent = thousandComma(leftOverNum);
+        if (!orderListNames.includes(clickedName)){
+            leftOverNum -= clickedPrice;
+            leftOver.textContent = thousandComma(leftOverNum);
+
+            const li = document.createElement('li');
+            li.setAttribute('class', 'order-check-wrapper');
+
+            const img = document.createElement('img');
+            img.setAttribute("src", clickedImg.getAttribute('src'));
+            img.setAttribute("alt", clickedImg.getAttribute('alt'));
+            img.setAttribute("class", "small-cola-img");
+
+            const p = document.createElement('p');
+            p.textContent = clickedName;
+            p.setAttribute("class", "small-cola-name");
+
+            reduceNum(clickedName);
+
+            const div = document.createElement('div');
+            const hiddenSpan = document.createElement('span');
+            hiddenSpan.setAttribute('class', 'txt-hide');
+            div.appendChild(hiddenSpan);
+            div.textContent = 1;
+            div.setAttribute("class", "num-select");
+
+            li.appendChild(img);
+            li.appendChild(p);
+            li.appendChild(div);
+    
+            orderCheck.append(li);
+        } else {
+            const sameNameLi = orderCheckItems[orderListNames.indexOf(clickedName)];
+            sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
+            reduceNum(clickedName);
+        }
     } else {
         window.alert("잔액이 부족합니다.");
     }
@@ -140,5 +197,5 @@ function drinkSelected(event){
 
 drinkList.querySelectorAll('li button')
     .forEach(e => {
-        e.addEventListener("click", drinkSelected);
-    })
+        e.addEventListener("click", onceSelected);
+    });
