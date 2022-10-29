@@ -119,3 +119,26 @@ function leftReturnFun(){
 }
 
 leftReturnBtn.addEventListener('click', leftReturnFun);
+
+// 음료 클릭시
+function drinkSelected(event){
+    const clickedItem = event.currentTarget;
+
+    const clickedPrice = parseInt(clickedItem
+    .querySelector(".item-price")
+    .textContent
+    .slice(0, -1), 10);
+    console.log(clickedPrice);
+
+    if (leftOverNum >= clickedPrice){
+        leftOverNum -= clickedPrice;
+        leftOver.textContent = thousandComma(leftOverNum);
+    } else {
+        window.alert("잔액이 부족합니다.");
+    }
+}
+
+drinkList.querySelectorAll('li button')
+    .forEach(e => {
+        e.addEventListener("click", drinkSelected);
+    })
