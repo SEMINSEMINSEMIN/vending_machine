@@ -83,3 +83,6 @@ const moneyNowNum = parseInt(moneyNow
     .replace(',', '')
     .slice(0, -2), 10);
 console.log(moneyNowNum);
+
+// 입금액
+const moneyInp = left.querySelector()
