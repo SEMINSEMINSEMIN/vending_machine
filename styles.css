@@ -119,7 +119,7 @@ button {
     padding: 0;
 }
 
-.left .drink-item:hover {
+button:hover {
     outline: 3px solid var(--point-color);
 }
 

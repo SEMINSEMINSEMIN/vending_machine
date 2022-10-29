@@ -82,7 +82,15 @@ const moneyNowNum = parseInt(moneyNow
     .textContent
     .replace(',', '')
     .slice(0, -2), 10);
-console.log(moneyNowNum);
 
 // 입금액
-const moneyInp = left.querySelector()
+const moneyInp = left.querySelector("#inputDeposit");
+const inpBtn = left.querySelector(".btn-deposit");
+
+function moneyInput(){
+    if (moneyInp.value > moneyNowNum){
+        window.alert('소지금보다 입금액이 더 클 수 없습니다.');
+    }
+}
+
+inpBtn.addEventListener('click', moneyInput);
