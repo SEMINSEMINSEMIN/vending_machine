@@ -78,7 +78,7 @@ for (let i = 0; i < drinkData.length; i++){
 
 // 소지금
 const moneyNow = right.querySelector('.money-now .text-right .num-only');
-const moneyNowNum = parseInt(moneyNow
+let moneyNowNum = parseInt(moneyNow
     .textContent.replace(',',''), 10);
 
 // 입금액
@@ -89,7 +89,10 @@ function moneyInput(){
     if (moneyInp.value > moneyNowNum){
         window.alert('소지금보다 입금액이 더 클 수 없습니다.');
     } else {
-        moneyNow.textContent = moneyNowNum - moneyInp.value;
+        moneyNowNum = moneyNowNum - moneyInp.value;
+        moneyNow.textContent = moneyNowNum
+        .toString()
+        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     }
 }
 
