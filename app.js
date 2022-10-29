@@ -77,11 +77,9 @@ for (let i = 0; i < drinkData.length; i++){
 }
 
 // 소지금
-const moneyNow = right.querySelector('.money-now .text-right');
+const moneyNow = right.querySelector('.money-now .text-right .num-only');
 const moneyNowNum = parseInt(moneyNow
-    .textContent
-    .replace(',', '')
-    .slice(0, -2), 10);
+    .textContent.replace(',',''), 10);
 
 // 입금액
 const moneyInp = left.querySelector("#inputDeposit");
