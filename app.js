@@ -242,3 +242,13 @@ drinkList.querySelectorAll('li button')
         e.addEventListener("click", onceSelected);
     });
 
+// 획득 버튼 클릭시
+const getBtn = left.querySelector(".btn-get");
+
+// 값 누적
+const totalSum = right.querySelector(".total-amount .num-only");
+function getClickedFun(){
+    totalSum.textContent = thousandComma(priceSum);
+}
+
+getBtn.addEventListener("click", getClickedFun);
