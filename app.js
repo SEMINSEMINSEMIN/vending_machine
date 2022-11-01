@@ -150,6 +150,8 @@ let items = {
     // 'Orange_Cola': undefined,
 };
 
+let priceSum = 0;
+
 function onceSelected(event){
     const clickedItem = event.currentTarget;
 
@@ -216,6 +218,9 @@ function onceSelected(event){
             li.appendChild(div);
     
             orderCheck.append(li);
+
+            priceSum += clickedPrice;
+            console.log(priceSum);
         } else {
             items[clickedName].reduceNum(event);
             // console.log(items);
@@ -224,6 +229,8 @@ function onceSelected(event){
             leftOver.textContent = thousandComma(leftOverNum);
             sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
             // reduceNum(clickedName, event);
+            priceSum += clickedPrice;
+            console.log(priceSum);
         }
     } else {
         window.alert("잔액이 부족합니다.");
