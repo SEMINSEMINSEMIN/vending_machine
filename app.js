@@ -123,17 +123,32 @@ leftReturnBtn.addEventListener('click', leftReturnFun);
 // 음료 클릭시
 const orderCheck = left.querySelector('.order-check');
 
-function reduceNum(name, event){
-    drinkData.forEach(e => {
-        if (e["drinkName"] === name && e["num"] > 1){
-            e["num"] = e["num"] - 1;
-        } else if (e["num"] == 1){
+class OrderItem {
+    constructor(name, img, leftNum){
+        this.name = name;
+        this.img = img;
+        this.leftNum = leftNum;
+    }
+
+    reduceNum(event){
+        if (this.leftNum > 1){
+            return this.leftNum--;
+        } else if (this.leftNum === 1){
             event.currentTarget.classList.add("sold-out");
             event.currentTarget.setAttribute('disabled', '');
-            e["num"] = e["num"] - 1;
+            return this.leftNum--;
         }
-    });
+    }
 }
+
+let items = {
+    // 'Original_Cola': undefined,
+    // 'Violet_Cola': undefined,
+    // 'Yellow_Cola': undefined,
+    // 'Cool_Cola': undefined,
+    // 'Green_Cola': undefined,
+    // 'Orange_Cola': undefined,
+};
 
 function onceSelected(event){
     const clickedItem = event.currentTarget;
@@ -167,16 +182,27 @@ function onceSelected(event){
             const li = document.createElement('li');
             li.setAttribute('class', 'order-check-wrapper');
 
+            items[clickedName] = new OrderItem(
+                clickedName, 
+                [clickedImg.getAttribute('src'), clickedImg.getAttribute('alt')],
+                drinkData
+                    .find(e => e['drinkName'] === clickedName)
+                    .num
+            );
+
             const img = document.createElement('img');
-            img.setAttribute("src", clickedImg.getAttribute('src'));
-            img.setAttribute("alt", clickedImg.getAttribute('alt'));
+            img.setAttribute("src", items[clickedName].img[0]);
+            img.setAttribute("alt", items[clickedName].img[0]);
             img.setAttribute("class", "small-cola-img");
 
             const p = document.createElement('p');
             p.textContent = clickedName;
             p.setAttribute("class", "small-cola-name");
-
-            reduceNum(clickedName, event);
+            
+            items[clickedName].reduceNum(event);
+            // reduceNum(clickedName, event);
+            // console.log('--');
+            // console.log(items);
 
             const div = document.createElement('div');
             const hiddenSpan = document.createElement('span');
@@ -191,10 +217,13 @@ function onceSelected(event){
     
             orderCheck.append(li);
         } else {
+            items[clickedName].reduceNum(event);
+            // console.log(items);
+            // console.log('--');
             leftOverNum -= clickedPrice;
             leftOver.textContent = thousandComma(leftOverNum);
             sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
-            reduceNum(clickedName, event);
+            // reduceNum(clickedName, event);
         }
     } else {
         window.alert("잔액이 부족합니다.");
