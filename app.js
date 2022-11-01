@@ -124,10 +124,11 @@ leftReturnBtn.addEventListener('click', leftReturnFun);
 const orderCheck = left.querySelector('.order-check');
 
 class OrderItem {
-    constructor(name, img, leftNum){
+    constructor(name, img, leftNum, count){
         this.name = name;
         this.img = img;
         this.leftNum = leftNum;
+        this.count = 0;
     }
 
     reduceNum(event){
@@ -138,6 +139,10 @@ class OrderItem {
             event.currentTarget.setAttribute('disabled', '');
             return this.leftNum--;
         }
+    }
+
+    addCount(){
+        this.count++;
     }
 }
 
@@ -205,12 +210,13 @@ function onceSelected(event){
             // reduceNum(clickedName, event);
             // console.log('--');
             // console.log(items);
+            items[clickedName].addCount();
 
             const div = document.createElement('div');
             const hiddenSpan = document.createElement('span');
             hiddenSpan.setAttribute('class', 'txt-hide');
             div.appendChild(hiddenSpan);
-            div.textContent = 1;
+            div.textContent = items[clickedName].count;
             div.setAttribute("class", "num-select");
 
             li.appendChild(img);
@@ -222,11 +228,13 @@ function onceSelected(event){
             priceSum += clickedPrice;
         } else {
             items[clickedName].reduceNum(event);
+            items[clickedName].addCount();
             // console.log(items);
             // console.log('--');
             leftOverNum -= clickedPrice;
             leftOver.textContent = thousandComma(leftOverNum);
-            sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
+            // sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
+            sameNameLi.children[2].textContent = items[clickedName].count;
             // reduceNum(clickedName, event);
             priceSum += clickedPrice;
         }
@@ -269,7 +277,7 @@ function getClickedFun(){
 
         const div = document.createElement('div');
         div.setAttribute('class', 'num-select');
-        div.textContent = 5;
+        div.textContent = e[1].count;
 
         li.appendChild(img);
         li.appendChild(p);
