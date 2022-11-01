@@ -220,7 +220,6 @@ function onceSelected(event){
             orderCheck.append(li);
 
             priceSum += clickedPrice;
-            console.log(priceSum);
         } else {
             items[clickedName].reduceNum(event);
             // console.log(items);
@@ -230,7 +229,6 @@ function onceSelected(event){
             sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
             // reduceNum(clickedName, event);
             priceSum += clickedPrice;
-            console.log(priceSum);
         }
     } else {
         window.alert("잔액이 부족합니다.");
@@ -251,6 +249,12 @@ function getClickedFun(){
     // 값 누적
     totalSum.textContent = thousandComma(priceSum);
     for (const e of Object.entries(items)){
+        // 데이터 맞춰주기
+        drinkData.find(i => {
+            return i["drinkName"] === e[1].name;
+        })["num"] = e[1].leftNum;
+
+        // 렌더링
         const li = document.createElement('li');
         li.setAttribute('class', 'order-check-wrapper');
 
