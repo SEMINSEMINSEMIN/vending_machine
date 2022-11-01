@@ -244,11 +244,35 @@ drinkList.querySelectorAll('li button')
 
 // 획득 버튼 클릭시
 const getBtn = left.querySelector(".btn-get");
+const receiptCont = right.querySelector(".receipt ul");
 
-// 값 누적
 const totalSum = right.querySelector(".total-amount .num-only");
 function getClickedFun(){
+    // 값 누적
     totalSum.textContent = thousandComma(priceSum);
+    for (const e of Object.entries(items)){
+        const li = document.createElement('li');
+        li.setAttribute('class', 'order-check-wrapper');
+
+        const img = document.createElement('img');
+        img.setAttribute('class', 'small-cola-img');
+        img.setAttribute('src', e[1].img[0]);
+        img.setAttribute('alt', e[1].img[1]);
+
+        const p = document.createElement('p');
+        p.setAttribute('class', 'small-cola-name');
+        p.textContent = e[1].name;
+
+        const div = document.createElement('div');
+        div.setAttribute('class', 'num-select');
+        div.textContent = 5;
+
+        li.appendChild(img);
+        li.appendChild(p);
+        li.appendChild(div);
+
+        receiptCont.appendChild(li);
+    }
 }
 
 getBtn.addEventListener("click", getClickedFun);
