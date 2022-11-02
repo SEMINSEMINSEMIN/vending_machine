@@ -7,44 +7,32 @@ const drinkData = [{
     "drinkName": "Original_Cola",
     "price": 1000,
     "num": 5,
-    'img': ["images/Original_Cola.png", "Original Cola"],
-    "isSelected": false,
-    "isSoldout": false
+    'img': ["images/Original_Cola.png", "Original Cola"]
 }, {
     'drinkName': "Violet_Cola",
     "price": 1000,
     "num": 5,
-    'img': ["images/Violet_Cola.png", "Violet Cola"],
-    "isSelected": false,
-    "isSoldout": false
+    'img': ["images/Violet_Cola.png", "Violet Cola"]
 }, {
     'drinkName': "Yellow_Cola",
     "price": 1000,
     "num": 5,
-    'img': ["images/Yellow_Cola.png", "Yellow Cola"],
-    "isSelected": false,
-    "isSoldout": false
+    'img': ["images/Yellow_Cola.png", "Yellow Cola"]
 }, {
     'drinkName': "Cool_Cola",
     "price": 1000,
     "num": 5,
-    'img': ["images/Cool_Cola.png", "Cool Cola"],
-    "isSelected": false,
-    "isSoldout": false
+    'img': ["images/Cool_Cola.png", "Cool Cola"]
 }, {
     'drinkName': "Green_Cola",
     "price": 1000,
     "num": 5,
-    'img': ["images/Green_Cola.png", "Green Cola"],
-    "isSelected": false,
-    "isSoldout": false
+    'img': ["images/Green_Cola.png", "Green Cola"]
 }, {
     'drinkName': "Orange_Cola",
     "price": 1000,
     "num": 5,
-    'img': ["images/Orange_Cola.png", "Orange Cola"],
-    "isSelected": false,
-    "isSoldout": false
+    'img': ["images/Orange_Cola.png", "Orange Cola"]
 }];
 
 const drinkList = left.querySelector(".drink-list");
@@ -96,6 +84,8 @@ let leftOverNum = parseInt(leftOver.textContent.replace(',', ''), 10);
 function moneyInput(){
     if (moneyInp.value > moneyNowNum){
         window.alert('소지금보다 입금액이 더 클 수 없습니다.');
+    } else if (moneyInp.value === ''){
+        window.alert('입금액을 입력하세요!')
     } else {
         moneyNowNum = moneyNowNum - moneyInp.value;
         moneyNow.textContent = thousandComma(moneyNowNum);
