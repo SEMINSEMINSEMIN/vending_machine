@@ -269,6 +269,8 @@ function getClickedFun(){
 
     // items 초기화
     items = {};
+    // https://hianna.tistory.com/722
+    orderCheck.replaceChildren();
 }
 
 getBtn.addEventListener("click", getClickedFun);
