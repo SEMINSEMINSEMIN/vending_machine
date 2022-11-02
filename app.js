@@ -1,68 +1,54 @@
 const main = document.querySelector('main');
 const left = main.querySelector('.left');
 const right = main.querySelector('.right');
-
-// 음료 메뉴
-const drinkData = [{
-    "drinkName": "Original_Cola",
-    "price": 1000,
-    "num": 5,
-    'img': ["images/Original_Cola.png", "Original Cola"]
-}, {
-    'drinkName': "Violet_Cola",
-    "price": 1000,
-    "num": 5,
-    'img': ["images/Violet_Cola.png", "Violet Cola"]
-}, {
-    'drinkName': "Yellow_Cola",
-    "price": 1000,
-    "num": 5,
-    'img': ["images/Yellow_Cola.png", "Yellow Cola"]
-}, {
-    'drinkName': "Cool_Cola",
-    "price": 1000,
-    "num": 5,
-    'img': ["images/Cool_Cola.png", "Cool Cola"]
-}, {
-    'drinkName': "Green_Cola",
-    "price": 1000,
-    "num": 5,
-    'img': ["images/Green_Cola.png", "Green Cola"]
-}, {
-    'drinkName': "Orange_Cola",
-    "price": 1000,
-    "num": 5,
-    'img': ["images/Orange_Cola.png", "Orange Cola"]
-}];
-
 const drinkList = left.querySelector(".drink-list");
 
-for (let i = 0; i < drinkData.length; i++){
-    const li = document.createElement('li');
-    li.setAttribute('class', 'drink-item');
+let drinkData;
 
-    const btn = document.createElement('button');
+async function getData(){
+    const response = await fetch('https://gist.githubusercontent.com/SEMINSEMINSEMIN/4467beb708c54221f8e853ce815cdd99/raw/69a651ec9523816cff18b4c563ed4b655d84c1b9/vending_machine');
 
-    const img = document.createElement('img');
-    img.setAttribute('src', drinkData[i].img[0]);
-    img.setAttribute('alt', drinkData[i].img[1]);
+    drinkData = await response.json();
 
-    const nameSpan = document.createElement('span');
-    nameSpan.setAttribute('class', 'item-name');
-    nameSpan.textContent = drinkData[i].drinkName;
+    renderData(drinkData, drinkList);
 
-    const priceSpan = document.createElement('span');
-    priceSpan.setAttribute('class', 'item-price');
-    priceSpan.textContent = `${drinkData[i].price}원`;
-    
-    btn.appendChild(img);
-    btn.appendChild(nameSpan);
-    btn.appendChild(priceSpan);
-
-    li.appendChild(btn);
-
-    drinkList.appendChild(li);
+    drinkList.querySelectorAll('li button')
+    .forEach(e => {
+        e.addEventListener("click", onceSelected);
+    });
 }
+
+// 데이터 받아온 뒤 렌더링
+function renderData(data, cont){
+    for (let i in data){
+        const li = document.createElement('li');
+        li.setAttribute('class', 'drink-item');
+
+        const btn = document.createElement('button');
+
+        const img = document.createElement('img');
+        img.setAttribute('src', drinkData[i].img[0]);
+        img.setAttribute('alt', drinkData[i].img[1]);
+
+        const nameSpan = document.createElement('span');
+        nameSpan.setAttribute('class', 'item-name');
+        nameSpan.textContent = drinkData[i].drinkName;
+
+        const priceSpan = document.createElement('span');
+        priceSpan.setAttribute('class', 'item-price');
+        priceSpan.textContent = `${drinkData[i].price}원`;
+
+        btn.appendChild(img);
+        btn.appendChild(nameSpan);
+        btn.appendChild(priceSpan);
+
+        li.appendChild(btn);
+
+        cont.appendChild(li);
+    }
+}
+
+getData();
 
 // 소지금
 const moneyNow = right.querySelector('.money-now .text-right .num-only');
@@ -234,9 +220,9 @@ function onceSelected(event){
 }
 
 drinkList.querySelectorAll('li button')
-    .forEach(e => {
-        e.addEventListener("click", onceSelected);
-    });
+    // .forEach(e => {
+    //     e.addEventListener("click", onceSelected);
+    // });
 
 // 획득 버튼 클릭시
 const getBtn = left.querySelector(".btn-get");
