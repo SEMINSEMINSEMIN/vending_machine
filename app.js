@@ -234,43 +234,49 @@ const receiptCont = right.querySelector(".receipt ul");
 
 const totalSum = right.querySelector(".total-amount .num-only");
 function getClickedFun(){
+    if (orderCheck.children.length === 0){
+        window.alert("선택한 음료가 없습니다.");
+    } else if (!confirm("결제하시겠습니까?")||orderCheck.children.length === 0){
+
+    } else {
     // 값 누적
-    totalSum.textContent = thousandComma(priceSum);
+        totalSum.textContent = thousandComma(priceSum);
 
-    for (const e of Object.entries(items)){
-        // 데이터 맞춰주기
-        drinkData.find(i => {
-            return i["drinkName"] === e[1].name;
-        })["num"] = e[1].leftNum;
+        for (const e of Object.entries(items)){
+            // 데이터 맞춰주기
+            drinkData.find(i => {
+                return i["drinkName"] === e[1].name;
+            })["num"] = e[1].leftNum;
 
-        // 렌더링
-        const li = document.createElement('li');
-        li.setAttribute('class', 'order-check-wrapper');
+            // 렌더링
+            const li = document.createElement('li');
+            li.setAttribute('class', 'order-check-wrapper');
 
-        const img = document.createElement('img');
-        img.setAttribute('class', 'small-cola-img');
-        img.setAttribute('src', e[1].img[0]);
-        img.setAttribute('alt', e[1].img[1]);
+            const img = document.createElement('img');
+            img.setAttribute('class', 'small-cola-img');
+            img.setAttribute('src', e[1].img[0]);
+            img.setAttribute('alt', e[1].img[1]);
 
-        const p = document.createElement('p');
-        p.setAttribute('class', 'small-cola-name');
-        p.textContent = e[1].name;
+            const p = document.createElement('p');
+            p.setAttribute('class', 'small-cola-name');
+            p.textContent = e[1].name;
 
-        const div = document.createElement('div');
-        div.setAttribute('class', 'num-select');
-        div.textContent = e[1].count;
+            const div = document.createElement('div');
+            div.setAttribute('class', 'num-select');
+            div.textContent = e[1].count;
 
-        li.appendChild(img);
-        li.appendChild(p);
-        li.appendChild(div);
+            li.appendChild(img);
+            li.appendChild(p);
+            li.appendChild(div);
 
-        receiptCont.appendChild(li);
+            receiptCont.appendChild(li);
+        }
+
+        // items 초기화
+        items = {};
+        // https://hianna.tistory.com/722
+        orderCheck.replaceChildren();
     }
-
-    // items 초기화
-    items = {};
-    // https://hianna.tistory.com/722
-    orderCheck.replaceChildren();
 }
 
 getBtn.addEventListener("click", getClickedFun);
