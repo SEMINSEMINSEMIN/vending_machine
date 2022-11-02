@@ -58,7 +58,13 @@ let moneyNowNum = parseInt(moneyNow
 // https://hianna.tistory.com/441
 // 천단위마다 콤마
 function thousandComma(num){
-    return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    const arr = num.toString().split('');
+    for (let i = 0; i > -arr.length; i--){
+        if ((-i - 3) % 4 === 0){
+            arr.splice(i, 0, ',');
+        }
+    }
+    return arr.join('');
 }
 
 // 입금액
@@ -73,7 +79,7 @@ function moneyInput(){
     } else if (moneyInp.value === ''){
         window.alert('입금액을 입력하세요!')
     } else {
-        moneyNowNum = moneyNowNum - moneyInp.value;
+        moneyNowNum = moneyNowNum - parseInt(moneyInp.value, 10);
         moneyNow.textContent = thousandComma(moneyNowNum);
 
         leftOverNum += parseInt(moneyInp.value, 10);
