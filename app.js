@@ -236,6 +236,7 @@ const totalSum = right.querySelector(".total-amount .num-only");
 function getClickedFun(){
     // 값 누적
     totalSum.textContent = thousandComma(priceSum);
+
     for (const e of Object.entries(items)){
         // 데이터 맞춰주기
         drinkData.find(i => {
@@ -265,6 +266,9 @@ function getClickedFun(){
 
         receiptCont.appendChild(li);
     }
+
+    // items 초기화
+    items = {};
 }
 
 getBtn.addEventListener("click", getClickedFun);
