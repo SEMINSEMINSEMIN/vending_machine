@@ -52,8 +52,7 @@ getData();
 
 // 소지금
 const moneyNow = right.querySelector('.money-now .text-right .num-only');
-let moneyNowNum = parseInt(moneyNow
-    .textContent.replace(',',''), 10);
+let moneyNowNum = parseInt(moneyNow.textContent.replace(',',''), 10);
 
 // https://hianna.tistory.com/441
 // 천단위마다 콤마
@@ -128,14 +127,7 @@ class OrderItem {
     }
 }
 
-let items = {
-    // 'Original_Cola': undefined,
-    // 'Violet_Cola': undefined,
-    // 'Yellow_Cola': undefined,
-    // 'Cool_Cola': undefined,
-    // 'Green_Cola': undefined,
-    // 'Orange_Cola': undefined,
-};
+let items = {};
 
 let priceSum = 0;
 
@@ -156,15 +148,16 @@ function onceSelected(event){
 
     const orderCheckItems = orderCheck.querySelectorAll("li");
 
-    const orderListNames = [];
-    for (const i of orderCheckItems){
-        orderListNames.push(i.children[1].textContent);
-    }
+    // const orderListNames = [];
+    // for (const i of orderCheckItems){
+    //     orderListNames.push(i.children[1].textContent);
+    // }
 
-    const sameNameLi = orderCheckItems[orderListNames.indexOf(clickedName)];
+    // const sameNameLi = orderCheckItems[orderListNames.indexOf(clickedName)];
 
     if (leftOverNum >= clickedPrice){
-        if (!orderListNames.includes(clickedName)){
+        // !orderListNames.includes(clickedName)
+        if (!items[clickedName]){
             leftOverNum -= clickedPrice;
             leftOver.textContent = thousandComma(leftOverNum);
 
@@ -216,7 +209,12 @@ function onceSelected(event){
             leftOverNum -= clickedPrice;
             leftOver.textContent = thousandComma(leftOverNum);
             // sameNameLi.children[2].textContent = parseInt(sameNameLi.children[2].textContent, 10) + 1;
-            sameNameLi.children[2].textContent = items[clickedName].count;
+            // sameNameLi.children[2].textContent = items[clickedName].count;
+            for (let i = 0; i < orderCheck.children.length; i++){
+                if (orderCheck.children[i].children[1].textContent === clickedName){
+                    orderCheck.children[i].children[2].textContent = items[clickedName].count;
+                }
+            }
             // reduceNum(clickedName, event);
             priceSum += clickedPrice;
         }
